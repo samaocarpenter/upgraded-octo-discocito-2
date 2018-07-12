@@ -4,8 +4,6 @@ import numpy as np
 import microphone
 import matplotlib.mlab as mlab
 
-print('loaded')
-
 def songCollector(path = '.'):
     '''
     A generator object that yields each song presently in the folder.
