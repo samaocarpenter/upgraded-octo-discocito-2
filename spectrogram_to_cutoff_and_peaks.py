@@ -18,7 +18,7 @@ def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
         The cutoff value used to distinguish the foreground from the 
         background. """
     
-    flat_spec = np.log(S.flatten())
+    flat_spec = np.log(spectrogram.flatten())
     N = len(flat_spec)
 
     hist, bin_edges = np.histogram(flat_spec, bins = int(N / 2), density = True)
