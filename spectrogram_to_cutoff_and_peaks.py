@@ -1,3 +1,5 @@
+import numpy as np
+
 def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
     """ Given the values of a spectrogram, return the cutoff value that 
         distinguishes the foreground from the background.
