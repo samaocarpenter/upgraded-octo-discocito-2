@@ -1,5 +1,9 @@
 import numpy as np
 
+from scipy.ndimage.filters import maximum_filter
+from scipy.ndimage.morphology import generate_binary_structure, binary_erosion 
+from scipy.ndimage.morphology import iterate_structure
+
 def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
     """ Given the values of a spectrogram, return the cutoff value that 
         distinguishes the foreground from the background.
