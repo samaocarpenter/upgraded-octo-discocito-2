@@ -120,5 +120,3 @@ def test_add_to_dict():
     print("Test 2 passed!")
 
     print("All tests passed!")
-
-test_fingerprints()
