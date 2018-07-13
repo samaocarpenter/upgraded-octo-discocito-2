@@ -21,7 +21,7 @@ def songCollector(path = '.'):
     files = root.glob('*.mp3')
     for file in files:
         data, fsdfs = load(file, sr = 44100, mono = True)
-        yield file, data
+        yield file, data * 2**15
         
 
 def create_spectrogram(audio_file, sampling_rate = 44100):
