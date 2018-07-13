@@ -6,7 +6,7 @@ ok, so here's what we need to do:
 * read in audio input (mic or pickle) - Sam 
    * FUNCTION - accepts no parameters, collects input from the microphone, returns that audio file
    * FUNCTION - read in songs from a file
-* make spectrogram - Jenny (done)
+* make spectrogram - Jenny
 * make peaks - Christina
 * find the cutoff for background noise - Christina
 * create the "fingerprints" (THIS IS THE BIG SCARY) - Alexey
