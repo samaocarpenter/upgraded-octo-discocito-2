@@ -7,7 +7,7 @@ def fingerprints(specgram, fanout=5):
     INPUTS
 
         specgram:   spectrogram to analyze
-                    boolean ndarray of shape (num_feqs, num_times)
+                    boolean ndarray of shape (num_freqs, num_times)
                     same shape as first output from mlab.spec()
 
         fanout:     number of neighboring points each point gets matched against
