@@ -27,7 +27,7 @@ def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
     
     flat_spec = np.log(spectrogram.flatten())
     N = len(flat_spec)
-    
+
     bin_counts, bin_edges = np.histogram(flat_spec, bins = int(N / 2), density = True)
     bin_size = np.diff(bin_edges)
     

@@ -7,7 +7,7 @@ def fingerprints(specgram, fanout=5):
     INPUTS
 
         specgram:   spectrogram to analyze
-                    boolean ndarray of shape (num_feqs, num_times)
+                    boolean ndarray of shape (num_freqs, num_times)
                     same shape as first output from mlab.spec()
 
         fanout:     number of neighboring points each point gets matched against
@@ -23,11 +23,48 @@ def fingerprints(specgram, fanout=5):
     t, f = np.where(specgram.T)
 
     # choose pairs to encode
-    out = np.empty((1, 2))
+    out = []
     for i in range(len(t)):
         for j in range(i+1, min(i+1+fanout, len(t))):
-            out = np.append(out, [[(f[i], f[j], t[j]-t[i]), t[i]]], axis=0)
-    return out[1:, :]
+            out.append([(f[i], f[j], t[j]-t[i]), t[i]])
+    return np.array(out)
+
+def test_fingerprints():
+    '''
+    Tests the function fingerprints()
+    '''
+    # test 1
+    in1 = np.zeros((3, 5), dtype=bool)
+    in1[0, 2] = True
+    in1[1, 0] = True
+    in1[1, 4] = True
+    in1[2, 2] = True
+    out1 = np.array([[(1, 0, 2), 0],
+                     [(1, 2, 2), 0],
+                     [(1, 1, 4), 0],
+                     [(0, 2, 0), 2],
+                     [(0, 1, 2), 2],
+                     [(2, 1, 2), 2]])
+    assert np.array_equal(fingerprints(in1), out1)
+    print("Test 1 passed!")
+    
+    # test 2
+    out2 = np.array([[(1, 0, 2), 0],
+                     [(1, 2, 2), 0],
+                     [(0, 2, 0), 2],
+                     [(0, 1, 2), 2],
+                     [(2, 1, 2), 2]])
+    assert np.array_equal(fingerprints(in1, 2), out2)
+    print("Test 2 passed!")
+    
+    # test 3
+    out3 = np.array([[(1, 0, 2), 0],
+                     [(0, 2, 0), 2],
+                     [(2, 1, 2), 2]])
+    assert np.array_equal(fingerprints(in1, 1), out3)
+    print("Test 3 passed!")
+
+    print("All tests passed!")
 
 def add_to_dict(diction, fings, song_id):
     '''
@@ -52,3 +89,34 @@ def add_to_dict(diction, fings, song_id):
         else:
             diction[fing[0]] = [tup]
     return diction
+
+def test_add_to_dict():
+    '''
+    Tests the function add_to_dict()
+    '''
+    # test 1
+    diction = {}
+    in1 = np.array([[(1, 0, 2), 0],
+                     [(1, 2, 2), 0],
+                     [(0, 2, 0), 2],
+                     [(0, 1, 2), 2],
+                     [(1, 2, 2), 2]])
+    out1 = {(1, 0, 2) : [(0, 0)],
+            (1, 2, 2) : [(0, 0), (0, 2)],
+            (0, 2, 0) : [(0, 2)],
+            (0, 1, 2) : [(0, 2)],}
+    assert add_to_dict(diction, in1, 0) == out1
+    print("Test 1 passed!")
+
+    # test 2
+    in2 = np.array([[(1, 0, 2), 0],
+                    [(0, 2, 0), 2],
+                    [(1, 2, 2), 2]])
+    out2 = {(1, 0, 2) : [(0, 0), (1, 0)],
+            (1, 2, 2) : [(0, 0), (0, 2), (1, 2)],
+            (0, 2, 0) : [(0, 2), (1, 2)],
+            (0, 1, 2) : [(0, 2)],}
+    assert add_to_dict(diction, in2, 1) == out2
+    print("Test 2 passed!")
+
+    print("All tests passed!")
