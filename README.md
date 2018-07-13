@@ -1,5 +1,5 @@
 # upgraded-octo-discocito-2
-look, it was the auto-generated repo name
+you won't believe how many songs this song recognizer can recognize! 20 (not clickbait)
 
 ok, so here's what we need to do:
 
