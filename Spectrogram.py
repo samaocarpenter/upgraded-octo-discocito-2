@@ -63,5 +63,3 @@ def mic_audio(dur):
 # In[24]:
 
 
-mic_audio(5)
-
