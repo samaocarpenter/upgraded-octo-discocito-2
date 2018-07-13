@@ -63,3 +63,8 @@ def mic_audio(dur):
 # In[24]:
 
 
+<<<<<<< HEAD
+=======
+#mic_audio(5)
+
+>>>>>>> 840bbdbfbba1363673e9785dba1cc02ecc637274
