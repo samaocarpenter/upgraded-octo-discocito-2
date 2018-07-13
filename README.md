@@ -11,6 +11,6 @@ ok, so here's what we need to do:
 * find the cutoff for background noise - Christina
 * create the "fingerprints" (THIS IS THE BIG SCARY) - Alexey
 * store it in a database OR - Alexey & Sam
-* compare it to the database (THIS IS THE SMALLER BUT STILL RELATIVELY SIZABLE SCARY) - Sam
+* compare it to the database (THIS IS THE SMALLER BUT STILL RELATIVELY SIZABLE SCARY) - Jenny
 * tie it all together - EVERYONE
 * documentation (why god why) - ALL OF US!!!!!! WOOHOO

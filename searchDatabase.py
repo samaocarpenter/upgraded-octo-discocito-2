@@ -32,7 +32,7 @@ def search_database(dic, fingerpairs,min_matches = 50):
                 cnt[(songname, offset)]+=1
         else: continue
     song = cnt.most_common(1)
-    if cnt.most_common(1)[1] > min_matches:
+    if len(cnt) > 0 and cnt.most_common(1)[1] > min_matches:
         return cnt.most_common(1)[0][0][0] 
     else: return -1
 
