@@ -23,11 +23,11 @@ def fingerprints(specgram, fanout=5):
     t, f = np.where(specgram.T)
 
     # choose pairs to encode
-    out = np.empty((1, 2))
+    out = []
     for i in range(len(t)):
         for j in range(i+1, min(i+1+fanout, len(t))):
-            out = np.append(out, [[(f[i], f[j], t[j]-t[i]), t[i]]], axis=0)
-    return out[1:, :]
+            out.append([(f[i], f[j], t[j]-t[i]), t[i]])
+    return np.array(out)
 
 def test_fingerprints():
     '''
@@ -120,3 +120,5 @@ def test_add_to_dict():
     print("Test 2 passed!")
 
     print("All tests passed!")
+
+test_fingerprints()
