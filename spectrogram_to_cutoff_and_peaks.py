@@ -14,7 +14,7 @@ def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
             2D array of shape (N, M)
             
         frac_cut : int
-            the percentage of lower amplitudes that wull be considered 
+            the percentage of lower amplitudes that will be considered 
             background
             
         Returns
@@ -27,10 +27,10 @@ def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
     flat_spec = np.log(spectrogram.flatten())
     N = len(flat_spec)
 
-    hist, bin_edges = np.histogram(flat_spec, bins = int(N / 2), density = True)
+    bin_counts, bin_edges = np.histogram(flat_spec, bins = int(N / 2), density = True)
     bin_size = np.diff(bin_edges)
     
-    cumulative_distr = np.cumsum(hist * bin_size)
+    cumulative_distr = np.cumsum(bin_counts * bin_size)
     
     bin_index_of_cutoff = np.searchsorted(cumulative_distr, frac_cut)
     
