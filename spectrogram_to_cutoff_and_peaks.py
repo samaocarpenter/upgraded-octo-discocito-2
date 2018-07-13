@@ -22,7 +22,7 @@ def spectrogram_to_cutoff(spectrogram, frac_cut = 0.9):
         The cutoff value used to distinguish the foreground from the 
         background. """
     
-    flat_spec[flat_spec <= 0] = 1e-8
+    spectrogram[spectrogram <= 0] = 1e-15
     
     flat_spec = np.log(spectrogram.flatten())
     N = len(flat_spec)
