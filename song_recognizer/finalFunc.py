@@ -1,7 +1,7 @@
-from song_to_fingerprint import *
-from Spectrogram import mic_audio
+from song_recognizer.song_to_fingerprint import *
+from song_recognizer.Spectrogram import mic_audio
 from pickle import load
-import searchDatabase as search
+import song_recognizer.searchDatabase as search
 
 def getTheSong(time = 5):
     sample = mic_audio(time)
