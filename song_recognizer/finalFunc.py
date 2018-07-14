@@ -1,4 +1,4 @@
-from song_recognizer.song_to_fingerprint import *
+from song_recognizer.song_to_fingerprint import song_to_fingerprint
 from song_recognizer.Spectrogram import mic_audio
 from pickle import load
 import song_recognizer.searchDatabase as search
