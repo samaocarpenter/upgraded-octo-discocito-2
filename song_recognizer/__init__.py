@@ -1,1 +1,7 @@
 from song_recognizer.finalFunc import *
+from song_recognizer import baseLib
+from song_recognizer import fingerprinting
+from song_recognizer import searchDatabase
+from song_recognizer import song_to_fingerprint
+from song_recognizer import Spectrogram
+from song_recognizer import spectrogram_to_cutoff_and_peaks
