@@ -4,7 +4,7 @@
 import numpy as np
 from collections import Counter
 
-def search_database(dic, fingerpairs,min_matches = 5000):
+def search_database(dic, fingerpairs,min_matches = 500):
     
     '''
     INPUTS
