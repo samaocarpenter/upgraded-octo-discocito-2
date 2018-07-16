@@ -1,6 +1,6 @@
 import numpy as np
 
-def fingerprints(specgram, fanout=5):
+def fingerprints(specgram, fanout=15):
     '''
     Analyzes a peaks spectrogram and extracts pairwise fingerprints
 
