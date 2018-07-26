@@ -1,5 +1,5 @@
 # upgraded-octo-discocito-2
-you won't believe how many songs this song recognizer can recognize! 20 (not clickbait)
+you won't believe how many songs this song recognizer can recognize! 5 (clickbait) 20 (not clickbait)
 
 ok, so here's what we need to do:
 
